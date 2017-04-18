@@ -1,0 +1,14 @@
+<securityDefinition itemGroupDefaultAccess="granted"
+                    version="1.0"
+                    xmlns="http://www.jaspersoft.com/2007/SL/XMLSchema">
+    <resourceAccessGrants>
+        <resourceAccessGrantList id="WarehouseLimit_InventoryFact" label="WarehouseLimitIF" resourceId="JoinTree_1">
+            <resourceAccessGrants>
+                <resourceAccessGrant id="public_inventory_fact_1998_grantWarehouseid">
+                    <principalExpression>authentication.getPrincipal().getAttributes().any{it.getAttrName() in ['warehouseids']}</principalExpression>
+                    <filterExpression>public_inventory_fact_1998.warehouse_id in (groovy('authentication.getPrincipal().getAttributes().find{ it.attrName == "warehouseids" }.attrValue.split(",").collect{"''" + it + "''"}.join(",").replaceFirst("^''","").replaceFirst("''\$","")'))</filterExpression>
+                </resourceAccessGrant>
+            </resourceAccessGrants>
+        </resourceAccessGrantList>
+    </resourceAccessGrants>
+</securityDefinition>

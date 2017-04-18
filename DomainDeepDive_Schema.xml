@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.jaspersoft.com/2007/SL/XMLSchema" version="1.0">
+  <dataSources>
+    <jdbcDataSource id="WebinarDataSource">
+      <schemaMap>
+        <entry key="defaultSchema">
+          <string>public</string>
+        </entry>
+        <entry key="schema1">
+          <string>public</string>
+        </entry>
+      </schemaMap>
+    </jdbcDataSource>
+  </dataSources>
+  <items>
+    <item description="SalesMinusCost" descriptionId="SALESMINUSCOST.DESCR" id="SalesMinusCost" label="SalesMinusCost" labelId="SALESMINUSCOST.LABEL" resourceId="JoinTree_1._inventory_fact_1998.SalesMinusCost" />
+    <item description="the_date" descriptionId="THE_DATE.DESCR" id="the_date" label="the_date" labelId="THE_DATE.LABEL" resourceId="JoinTree_1._time_by_day.the_date" />
+    <item description="units_ordered" descriptionId="UNITS_ORDERED.DESCR" id="units_ordered" label="units_ordered" labelId="UNITS_ORDERED.LABEL" resourceId="JoinTree_1._inventory_fact_1998.units_ordered" />
+    <item defaultAgg="CountAll" description="warehouse_name" descriptionId="WAREHOUSE_NAME.DESCR" dimensionOrMeasure="Dimension" id="warehouse_name" label="Warehouse Name" labelId="WAREHOUSE_NAME.LABEL" resourceId="JoinTree_1._warehouse.warehouse_name" />
+    <item description="warehouse_city" descriptionId="WAREHOUSE_CITY.DESCR" id="warehouse_city" label="warehouse_city" labelId="WAREHOUSE_CITY.LABEL" resourceId="JoinTree_1._warehouse.warehouse_city" />
+    <item description="warehouse_cost" descriptionId="WAREHOUSE_COST.DESCR" id="warehouse_cost" label="warehouse_cost" labelId="WAREHOUSE_COST.LABEL" resourceId="JoinTree_1._inventory_fact_1998.warehouse_cost" />
+    <item description="warehouse_country" descriptionId="WAREHOUSE_COUNTRY.DESCR" id="warehouse_country" label="warehouse_country" labelId="WAREHOUSE_COUNTRY.LABEL" resourceId="JoinTree_1._warehouse.warehouse_country" />
+    <item description="warehouse_sales" descriptionId="WAREHOUSE_SALES.DESCR" id="warehouse_sales" label="warehouse_sales" labelId="WAREHOUSE_SALES.LABEL" resourceId="JoinTree_1._inventory_fact_1998.warehouse_sales" />
+    <item description="warehouse_state_province" descriptionId="WAREHOUSE_STATE_PROVINCE.DESCR" id="warehouse_state_province" label="warehouse_state_province" labelId="WAREHOUSE_STATE_PROVINCE.LABEL" resourceId="JoinTree_1._warehouse.warehouse_state_province" />
+  </items>
+  <resources>
+    <jdbcTable id="_inventory_fact_1998" datasourceId="WebinarDataSource" tableName="schema1.inventory_fact_1998">
+      <fieldList>
+        <field id="product_id" fieldDBName="product_id" type="java.lang.Integer" />
+        <field id="SalesMinusCost" dataSetExpression="warehouse_sales-warehouse_cost" fieldDBName="SalesMinusCost" type="java.math.BigDecimal" />
+        <field id="store_id" fieldDBName="store_id" type="java.lang.Integer" />
+        <field id="store_invoice" fieldDBName="store_invoice" type="java.math.BigDecimal" />
+        <field id="supply_time" fieldDBName="supply_time" type="java.lang.Short" />
+        <field id="time_id" fieldDBName="time_id" type="java.lang.Integer" />
+        <field id="units_ordered" fieldDBName="units_ordered" type="java.lang.Integer" />
+        <field id="units_shipped" fieldDBName="units_shipped" type="java.lang.Integer" />
+        <field id="warehouse_cost" fieldDBName="warehouse_cost" type="java.math.BigDecimal" />
+        <field id="warehouse_id" fieldDBName="warehouse_id" type="java.lang.Integer" />
+        <field id="warehouse_sales" fieldDBName="warehouse_sales" type="java.math.BigDecimal" />
+      </fieldList>
+    </jdbcTable>
+    <jdbcTable id="_time_by_day" datasourceId="WebinarDataSource" tableName="schema1.time_by_day">
+      <fieldList>
+        <field id="day_of_month" fieldDBName="day_of_month" type="java.lang.Short" />
+        <field id="day_of_week" fieldDBName="day_of_week" type="java.lang.Integer" />
+        <field id="fiscal_period" fieldDBName="fiscal_period" type="java.lang.String" />
+        <field id="month_of_year" fieldDBName="month_of_year" type="java.lang.Short" />
+        <field id="quarter" fieldDBName="quarter" type="java.lang.String" />
+        <field id="the_date" fieldDBName="the_date" type="java.sql.Timestamp" />
+        <field id="the_day" fieldDBName="the_day" type="java.lang.String" />
+        <field id="the_month" fieldDBName="the_month" type="java.lang.String" />
+        <field id="the_year" fieldDBName="the_year" type="java.lang.Short" />
+        <field id="time_id" fieldDBName="time_id" type="java.lang.Integer" />
+        <field id="week_of_year" fieldDBName="week_of_year" type="java.lang.Integer" />
+      </fieldList>
+    </jdbcTable>
+    <jdbcTable id="_warehouse" datasourceId="WebinarDataSource" tableName="schema1.warehouse">
+      <fieldList>
+        <field id="stores_id" fieldDBName="stores_id" type="java.lang.Integer" />
+        <field id="wa_address1" fieldDBName="wa_address1" type="java.lang.String" />
+        <field id="wa_address2" fieldDBName="wa_address2" type="java.lang.String" />
+        <field id="wa_address3" fieldDBName="wa_address3" type="java.lang.String" />
+        <field id="wa_address4" fieldDBName="wa_address4" type="java.lang.String" />
+        <field id="warehouse_city" fieldDBName="warehouse_city" type="java.lang.String" />
+        <field id="warehouse_class_id" fieldDBName="warehouse_class_id" type="java.lang.Integer" />
+        <field id="warehouse_country" fieldDBName="warehouse_country" type="java.lang.String" />
+        <field id="warehouse_fax" fieldDBName="warehouse_fax" type="java.lang.String" />
+        <field id="warehouse_id" fieldDBName="warehouse_id" type="java.lang.Integer" />
+        <field id="warehouse_name" fieldDBName="warehouse_name" type="java.lang.String" />
+        <field id="warehouse_owner_name" fieldDBName="warehouse_owner_name" type="java.lang.String" />
+        <field id="warehouse_phone" fieldDBName="warehouse_phone" type="java.lang.String" />
+        <field id="warehouse_postal_code" fieldDBName="warehouse_postal_code" type="java.lang.String" />
+        <field id="warehouse_state_province" fieldDBName="warehouse_state_province" type="java.lang.String" />
+      </fieldList>
+    </jdbcTable>
+    <jdbcTable id="JoinTree_1" datasourceId="WebinarDataSource" tableName="schema1.inventory_fact_1998">
+      <fieldList>
+        <field id="_time_by_day.day_of_month" fieldDBName="day_of_month" type="java.lang.Short" />
+        <field id="_time_by_day.day_of_week" fieldDBName="day_of_week" type="java.lang.Integer" />
+        <field id="_time_by_day.fiscal_period" fieldDBName="fiscal_period" type="java.lang.String" />
+        <field id="_time_by_day.month_of_year" fieldDBName="month_of_year" type="java.lang.Short" />
+        <field id="_time_by_day.quarter" fieldDBName="quarter" type="java.lang.String" />
+        <field id="_time_by_day.the_date" fieldDBName="the_date" type="java.sql.Timestamp" />
+        <field id="_time_by_day.the_day" fieldDBName="the_day" type="java.lang.String" />
+        <field id="_time_by_day.the_month" fieldDBName="the_month" type="java.lang.String" />
+        <field id="_time_by_day.the_year" fieldDBName="the_year" type="java.lang.Short" />
+        <field id="_time_by_day.time_id" fieldDBName="time_id" type="java.lang.Integer" />
+        <field id="_time_by_day.week_of_year" fieldDBName="week_of_year" type="java.lang.Integer" />
+        <field id="_warehouse.stores_id" fieldDBName="stores_id" type="java.lang.Integer" />
+        <field id="_warehouse.wa_address1" fieldDBName="wa_address1" type="java.lang.String" />
+        <field id="_warehouse.wa_address2" fieldDBName="wa_address2" type="java.lang.String" />
+        <field id="_warehouse.wa_address3" fieldDBName="wa_address3" type="java.lang.String" />
+        <field id="_warehouse.wa_address4" fieldDBName="wa_address4" type="java.lang.String" />
+        <field id="_warehouse.warehouse_city" fieldDBName="warehouse_city" type="java.lang.String" />
+        <field id="_warehouse.warehouse_class_id" fieldDBName="warehouse_class_id" type="java.lang.Integer" />
+        <field id="_warehouse.warehouse_country" fieldDBName="warehouse_country" type="java.lang.String" />
+        <field id="_warehouse.warehouse_fax" fieldDBName="warehouse_fax" type="java.lang.String" />
+        <field id="_warehouse.warehouse_id" fieldDBName="warehouse_id" type="java.lang.Integer" />
+        <field id="_warehouse.warehouse_name" fieldDBName="warehouse_name" type="java.lang.String" />
+        <field id="_warehouse.warehouse_owner_name" fieldDBName="warehouse_owner_name" type="java.lang.String" />
+        <field id="_warehouse.warehouse_phone" fieldDBName="warehouse_phone" type="java.lang.String" />
+        <field id="_warehouse.warehouse_postal_code" fieldDBName="warehouse_postal_code" type="java.lang.String" />
+        <field id="_warehouse.warehouse_state_province" fieldDBName="warehouse_state_province" type="java.lang.String" />
+        <field id="_inventory_fact_1998.product_id" fieldDBName="product_id" type="java.lang.Integer" />
+        <field id="_inventory_fact_1998.SalesMinusCost" dataSetExpression="_inventory_fact_1998.warehouse_sales-_inventory_fact_1998.warehouse_cost" fieldDBName="SalesMinusCost" type="java.math.BigDecimal" />
+        <field id="_inventory_fact_1998.store_id" fieldDBName="store_id" type="java.lang.Integer" />
+        <field id="_inventory_fact_1998.store_invoice" fieldDBName="store_invoice" type="java.math.BigDecimal" />
+        <field id="_inventory_fact_1998.supply_time" fieldDBName="supply_time" type="java.lang.Short" />
+        <field id="_inventory_fact_1998.time_id" fieldDBName="time_id" type="java.lang.Integer" />
+        <field id="_inventory_fact_1998.units_ordered" fieldDBName="units_ordered" type="java.lang.Integer" />
+        <field id="_inventory_fact_1998.units_shipped" fieldDBName="units_shipped" type="java.lang.Integer" />
+        <field id="_inventory_fact_1998.warehouse_cost" fieldDBName="warehouse_cost" type="java.math.BigDecimal" />
+        <field id="_inventory_fact_1998.warehouse_id" fieldDBName="warehouse_id" type="java.lang.Integer" />
+        <field id="_inventory_fact_1998.warehouse_sales" fieldDBName="warehouse_sales" type="java.math.BigDecimal" />
+      </fieldList>
+      <joinInfo alias="_inventory_fact_1998" referenceId="_inventory_fact_1998" />
+      <joinedDataSetList>
+        <joinedDataSetRef>
+          <joinString>join _time_by_day _time_by_day on (_inventory_fact_1998.time_id == _time_by_day.time_id)</joinString>
+        </joinedDataSetRef>
+        <joinedDataSetRef>
+          <joinString>join _warehouse _warehouse on (_inventory_fact_1998.warehouse_id == _warehouse.warehouse_id)</joinString>
+        </joinedDataSetRef>
+      </joinedDataSetList>
+    </jdbcTable>
+  </resources>
+</schema>
+
