@@ -27,7 +27,7 @@ This file exists in the WEB-INF folder of the webapp jasperserver-pro
 
 We add this function (which is really similar to another one in the file ;) ):
 
-<entry key="parseCSVtoIN">
+&lt;entry key="parseCSVtoIN">
                     <value>
                         def testAttrName = args[1].value
                         def testField = sqlArgs[0]
